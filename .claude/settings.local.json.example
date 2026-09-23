@@ -1,0 +1,11 @@
+{
+  "//": "Copy to .claude/settings.local.json (gitignored) for PERSONAL settings only. Never loosen team guardrails here: hooks and deny rules from settings.json still apply.",
+  "env": {
+    "ONCALL_WEBHOOK_URL": "https://hooks.slack.com/services/REPLACE/ME"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev*)"
+    ]
+  }
+}

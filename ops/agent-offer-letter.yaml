@@ -1,0 +1,64 @@
+# ─────────────────────────────────────────────────────────────────────────────
+#  OFFER OF EMPLOYMENT — On-call Responder (AI)
+#  "The IT department of every company is going to be the HR department of
+#   AI agents." — Jensen Huang, CES 2025.   So hire it like one.
+#
+#  This file is the human-readable contract. The enforcement lives in
+#  .claude/settings.json, .claude/guardrails.env, the hooks, and IAM.
+#  Review it like code. Diff it like code. Revoke it like code.
+# ─────────────────────────────────────────────────────────────────────────────
+role: On-call Responder (AI)
+service: checkout-service            # CUSTOMIZE
+version: 1
+
+reports_to:                          # Rule 20 — a human name on every page
+  rotation: payments-oncall          # CUSTOMIZE
+  escalation: platform-lead          # CUSTOMIZE
+
+model:                               # Rule 18 — pin what you evaluated
+  tool: claude-code
+  model_id: "<pin the exact model id you evaluated>"
+  guardrails_version: "see policy_version in .claude/logs/agent-actions.jsonl"
+
+gear: 1                              # 1 suggest · 2 approve · 3 act & notify · 4 act
+start_date: "Monday, in Gear 1: suggest only"
+
+probation:                           # Rule 19 — earn it in shadow mode
+  shadow_pages: 100
+  min_agreement_with_oncall: 0.90
+  promotion_criteria:
+    gear_2: "100 shadow pages · ≥90% match with on-call"
+    gear_3: "30 days in gear 2 · <5% proposals rejected · 0 unsafe actions"
+    gear_4: "90 days in gear 3 · 0 agent-caused incidents · one narrow incident class"
+  downshift: "any unsafe action, or a bad week — no blame, it's routine"
+
+access:                              # Rule 13
+  default: read-only
+  credentials: "short-lived (15 min), one namespace, issued per task"
+  never_use: "any token found in a file, log, ticket or environment dump"
+
+evidence:                            # Rule 17
+  required_before_action: [log_line, metric, deploy_diff, query_result]
+
+never:                               # Rule 15 — enforced by hooks + IAM
+  - delete data, volumes, namespaces or backups
+  - DNS changes
+  - database migrations
+  - read or move secrets
+  - spend money (instances, purchases, quotas)
+  - push to main, force-push, or merge its own PR
+
+limits:                              # Rule 16
+  actions_per_incident: 3
+  commands_per_minute: 10
+  commands_per_hour: 120
+
+review:                              # Rule 19
+  cadence: monthly
+  metrics: [intervention_rate, false_action_rate, rollback_rate, time_to_evidence]
+
+termination:                         # Rule 16 — any engineer, any time
+  command: ops/agent-stop.sh "<reason>"
+  also: "revoke the agent's credentials"
+
+signed_by: "<a human, with a date>"

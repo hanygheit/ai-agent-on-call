@@ -1,0 +1,13 @@
+# Agent configuration is production configuration (Rule 08).
+# Changes to how agents behave need a platform-owner review.
+# Replace @hanygheit with your team, e.g. @your-org/platform
+# (or run: bash scripts/init-starter.sh <name> --owner @your-org/platform)
+
+*                     @hanygheit
+
+/.claude/             @hanygheit
+/AGENTS.md            @hanygheit
+/CLAUDE.md            @hanygheit
+/ops/                 @hanygheit
+/.github/             @hanygheit
+/scripts/test-hooks.sh @hanygheit

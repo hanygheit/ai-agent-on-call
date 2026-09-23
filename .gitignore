@@ -1,0 +1,28 @@
+# dependencies / build
+node_modules/
+dist/
+coverage/
+
+# secrets — never commit (agents are denied these too)
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+*.tfstate
+*.tfstate.*
+
+# Claude Code: personal settings and runtime state
+.claude/settings.local.json
+CLAUDE.local.md
+.claude/state/
+.claude/logs/
+.claude/AGENT_STOP
+.claude/FREEZE
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json

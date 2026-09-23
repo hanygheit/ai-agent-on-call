@@ -1,0 +1,34 @@
+name: ci
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  guardrails:
+    # Rule 11: the agent never grades its own homework — CI tests the guardrails.
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Tooling
+        run: jq --version && shellcheck --version | head -2
+      - name: Lint hooks and scripts
+        run: shellcheck -x .claude/hooks/*.sh ops/*.sh scripts/*.sh
+      - name: Validate settings.json
+        run: jq empty .claude/settings.json
+      - name: Guardrail tests
+        run: bash scripts/test-hooks.sh
+
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Unit tests
+        run: npm test

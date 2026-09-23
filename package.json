@@ -1,0 +1,14 @@
+{
+  "name": "ai-agent-on-call",
+  "version": "1.0.0",
+  "description": "Starter repo for agentic software projects: AGENTS.md, Claude Code hooks, guardrails, specs and an agent 'offer letter'. Companion to the DevOpsDays Cairo 2026 talk.",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=22.6" },
+  "scripts": {
+    "test": "node --experimental-strip-types --no-warnings --test \"test/**/*.test.ts\"",
+    "test:hooks": "bash scripts/test-hooks.sh",
+    "test:all": "npm test && npm run test:hooks"
+  },
+  "license": "MIT"
+}
