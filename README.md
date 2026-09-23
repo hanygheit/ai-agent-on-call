@@ -9,6 +9,7 @@
 [![ci](https://github.com/hanygheit/ai-agent-on-call/actions/workflows/ci.yml/badge.svg)](https://github.com/hanygheit/ai-agent-on-call/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Talk: DevOpsDays Cairo 2026](https://img.shields.io/badge/talk-DevOpsDays%20Cairo%202026-E39A16.svg)](presentation/)
+[![Live web deck](https://img.shields.io/badge/%E2%96%B6%20live%20deck-ai--agent--on--call.lovable.app-132038.svg)](https://ai-agent-on-call.lovable.app/)
 
 </div>
 
@@ -24,7 +25,7 @@
 Prompts **ask**. This repo makes hooks, permissions and process **decide**.
 
 It is the companion to the talk **[*Before You Put an AI Agent on Call: 20 Rules for Safe Production Autonomy*](presentation/)**
-(DevOpsDays Cairo 2026) — and a **starter you can copy into any project** where humans
+(DevOpsDays Cairo 2026) — **[▶ watch the live web deck](https://ai-agent-on-call.lovable.app/)** — and a **starter you can copy into any project** where humans
 and coding agents (Claude Code, Copilot, Codex, Cursor, Gemini CLI, Kiro…) work together.
 
 ---
@@ -243,7 +244,8 @@ bash scripts/test-hooks.sh   # guardrail tests
 
 ## 🎤 The talk
 
-**[presentation/](presentation/)** — slides (PPTX + PDF) and the verbatim speaker script.
+- **▶ Live web deck:** **[https://ai-agent-on-call.lovable.app](https://ai-agent-on-call.lovable.app/)** — present or browse it in any browser
+- **[presentation/](presentation/)** — slides (PPTX + PDF) and the verbatim speaker script
 
 > Agents can act. **Accountability stays human.**
 
